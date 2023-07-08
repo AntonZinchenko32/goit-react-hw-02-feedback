@@ -3,16 +3,32 @@ import css from './Feedback.module.css';
 
 
 class Feedback extends Component {
+  
   state = {
   good: 0,
   neutral: 0,
   bad: 0
 }
 
-  addFeedback = () => {
-      this.setState(state => ({
-          
-      }));
+  addFeedback = (evt) => {
+    
+    const whatClicked = evt.target.textContent;
+    
+    switch (whatClicked) {
+      case "Good": 
+        this.setState(state => ({ good: state.good + 1 }))
+        break;
+      
+      case "Neutral": 
+        this.setState(state => ({ neutral: state.neutral + 1 }))
+        break;
+      
+      case "Bad": 
+        this.setState(state => ({ bad: state.bad + 1 }))
+        break;
+      default:
+        break;
+    } 
   };
 
   render() {
@@ -43,8 +59,8 @@ class Feedback extends Component {
                     <span className={css.label}>Good:</span>
                     <span className={css.percentage}>{this.state.good}</span>     
                 </li>    
-            </ul>    
-      </div>
+            </ul>  
+        </div>
     );
   }
 }
