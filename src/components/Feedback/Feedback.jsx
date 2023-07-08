@@ -10,30 +10,14 @@ class Feedback extends Component {
   bad: 0
 }
 
+
+  
   clickHandle = (evt) => {
     const whatClicked = evt.target.textContent;
 
-    switch (whatClicked) {
-      case "Good":
-        this.setState(state => ({ good: state.good + 1 }))
-        break;
-      
-      case "Neutral":
-        this.setState(state => ({ neutral: state.neutral + 1 }))
-        break;
-      
-      case "Bad":
-        this.setState(state => ({ bad: state.bad + 1 }))
-        break;
-    
-      default:
-        this.setState(state => ({
-          good: 0,
-          neutral: 0,
-          bad: 0,
-        }))
-        break;
-    }
+    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
+    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
+    else this.setState(state => ({ bad: state.bad + 1 }))
   };
 
   render() {
