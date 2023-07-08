@@ -17,14 +17,20 @@ class Feedback extends Component {
   
   
   clickHandle = (evt) => {
+    
+    // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
     const whatClicked = evt.target.textContent;
+    
+    // Деструктуризуємо об'єкт класу Feedback
+    const { setState, countTotalFeedback, countPositiveFeedbackPercentage } = this;
+    
+    
+    if (whatClicked === "Good") setState(state => ({ good: state.good + 1 }))
+    else if (whatClicked === "Neutral") setState(state => ({ neutral: state.neutral + 1 }))
+    else setState(state => ({ bad: state.bad + 1 }))
 
-    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
-    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
-    else this.setState(state => ({ bad: state.bad + 1 }))
-
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
+    countTotalFeedback();
+    countPositiveFeedbackPercentage();
   }
 
   countTotalFeedback = () => {
@@ -56,7 +62,7 @@ class Feedback extends Component {
       positivePercentage
     } = this.state
 
-    
+
     return (
         <div>
             <h2>Please leave feedback</h2>
@@ -82,10 +88,12 @@ class Feedback extends Component {
                     <span className={label}>Good:</span>
                     <span className={numberOfReviews}>{good}</span>     
                 </li>
+          
                 <li className={statListItem}>
                     <span className={label}>Total:</span>
                     <span className={numberOfReviews}>{total}</span>     
                 </li>
+          
                 <li className={statListItem}>
                     <span className={label}>Positive feedback:</span>
                     <span className={numberOfReviews}>{positivePercentage}%</span>     
