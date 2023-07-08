@@ -5,10 +5,13 @@ import css from './Feedback.module.css';
 class Feedback extends Component {
   
   state = {
+  
   good: 0,
   neutral: 0,
   bad: 0,
-  total: 0
+  
+  total: 0,
+  positivePercentage: 0
 }
 
   
@@ -21,11 +24,15 @@ class Feedback extends Component {
     else this.setState(state => ({ bad: state.bad + 1 }))
 
     this.countTotalFeedback();
-
+    this.countPositiveFeedbackPercentage();
   }
 
   countTotalFeedback = () => {
     this.setState(state => ({ total: state.good + state.neutral + state.bad }))
+  }
+
+  countPositiveFeedbackPercentage = () => {
+    this.setState(state => ({ positivePercentage: Math.round((state.good/state.total)*100) }))
   }
   
 
@@ -68,6 +75,10 @@ class Feedback extends Component {
                 <li className={statListItem}>
                     <span className={label}>Total:</span>
                     <span className={numberOfReviews}>{this.state.total}</span>     
+                </li>
+                <li className={statListItem}>
+                    <span className={label}>Positive feedback:</span>
+                    <span className={numberOfReviews}>{this.state.positivePercentage}%</span>     
                 </li>
             </ul>  
         </div>
