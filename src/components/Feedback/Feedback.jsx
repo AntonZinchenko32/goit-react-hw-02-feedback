@@ -47,6 +47,16 @@ class Feedback extends Component {
       numberOfReviews,
     } = css;
 
+    // Деструктуризуємо об'єкт стану компоненту(класу)
+    const {
+      bad,
+      neutral,
+      good,
+      total,
+      positivePercentage
+    } = this.state
+
+    
     return (
         <div>
             <h2>Please leave feedback</h2>
@@ -60,25 +70,25 @@ class Feedback extends Component {
             <ul className={statList}>
                 <li className={statListItem}>
                     <span className={label}>Bad:</span>
-                    <span className={numberOfReviews}>{this.state.bad}</span>     
+                    <span className={numberOfReviews}>{bad}</span>     
                 </li>
                 
                 <li className={statListItem}>
                     <span className={label}>Neutral:</span>
-                    <span className={numberOfReviews}>{this.state.neutral}</span>     
+                    <span className={numberOfReviews}>{neutral}</span>     
                 </li>
                 
                 <li className={statListItem}>
                     <span className={label}>Good:</span>
-                    <span className={numberOfReviews}>{this.state.good}</span>     
+                    <span className={numberOfReviews}>{good}</span>     
                 </li>
                 <li className={statListItem}>
                     <span className={label}>Total:</span>
-                    <span className={numberOfReviews}>{this.state.total}</span>     
+                    <span className={numberOfReviews}>{total}</span>     
                 </li>
                 <li className={statListItem}>
                     <span className={label}>Positive feedback:</span>
-                    <span className={numberOfReviews}>{this.state.positivePercentage}%</span>     
+                    <span className={numberOfReviews}>{positivePercentage}%</span>     
                 </li>
             </ul>  
         </div>
