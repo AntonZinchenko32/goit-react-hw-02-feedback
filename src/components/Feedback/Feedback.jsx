@@ -15,7 +15,6 @@ class Feedback extends Component {
 }
 
   
-  
   clickHandle = (evt) => {
     
     // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
