@@ -21,16 +21,13 @@ class Feedback extends Component {
     // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
     const whatClicked = evt.target.textContent;
     
-    // Деструктуризуємо об'єкт класу Feedback
-    const { setState, countTotalFeedback, countPositiveFeedbackPercentage } = this;
-    
-    
-    if (whatClicked === "Good") setState(state => ({ good: state.good + 1 }))
-    else if (whatClicked === "Neutral") setState(state => ({ neutral: state.neutral + 1 }))
-    else setState(state => ({ bad: state.bad + 1 }))
 
-    countTotalFeedback();
-    countPositiveFeedbackPercentage();
+    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
+    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
+    else this.setState(state => ({ bad: state.bad + 1 }))
+
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
   }
 
   countTotalFeedback = () => {
@@ -50,10 +47,10 @@ class Feedback extends Component {
       statList,
       statListItem,
       label,
-      numberOfReviews,
+      value
     } = css;
 
-    // Деструктуризуємо об'єкт стану компоненту(класу)
+    // Деструктуризуємо об'єкт стану екземпляру класу Feedback
     const {
       bad,
       neutral,
@@ -76,27 +73,27 @@ class Feedback extends Component {
             <ul className={statList}>
                 <li className={statListItem}>
                     <span className={label}>Bad:</span>
-                    <span className={numberOfReviews}>{bad}</span>     
+                    <span className={value}>{bad}</span>     
                 </li>
                 
                 <li className={statListItem}>
                     <span className={label}>Neutral:</span>
-                    <span className={numberOfReviews}>{neutral}</span>     
+                    <span className={value}>{neutral}</span>     
                 </li>
                 
                 <li className={statListItem}>
                     <span className={label}>Good:</span>
-                    <span className={numberOfReviews}>{good}</span>     
+                    <span className={value}>{good}</span>     
                 </li>
           
                 <li className={statListItem}>
                     <span className={label}>Total:</span>
-                    <span className={numberOfReviews}>{total}</span>     
+                    <span className={value}>{total}</span>     
                 </li>
           
                 <li className={statListItem}>
                     <span className={label}>Positive feedback:</span>
-                    <span className={numberOfReviews}>{positivePercentage}%</span>     
+                    <span className={value}>{positivePercentage}%</span>     
                 </li>
             </ul>  
         </div>
