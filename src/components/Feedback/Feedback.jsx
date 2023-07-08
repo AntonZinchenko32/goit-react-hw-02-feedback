@@ -10,25 +10,30 @@ class Feedback extends Component {
   bad: 0
 }
 
-  addFeedback = (evt) => {
-    
+  clickHandle = (evt) => {
     const whatClicked = evt.target.textContent;
-    
+
     switch (whatClicked) {
-      case "Good": 
+      case "Good":
         this.setState(state => ({ good: state.good + 1 }))
         break;
       
-      case "Neutral": 
+      case "Neutral":
         this.setState(state => ({ neutral: state.neutral + 1 }))
         break;
       
-      case "Bad": 
+      case "Bad":
         this.setState(state => ({ bad: state.bad + 1 }))
         break;
+    
       default:
+        this.setState(state => ({
+          good: 0,
+          neutral: 0,
+          bad: 0,
+        }))
         break;
-    } 
+    }
   };
 
   render() {
@@ -38,9 +43,9 @@ class Feedback extends Component {
         <div>
             <h2>Please leave feedback</h2>
 
-            <button className={css.myButton} onClick={this.addFeedback}>Good</button>
-            <button className={css.myButton} onClick={this.addFeedback}>Neutral</button>
-            <button className={css.myButton} onClick={this.addFeedback}>Bad</button>
+            <button className={css.myButton} onClick={this.clickHandle}>Good</button>
+            <button className={css.myButton} onClick={this.clickHandle}>Neutral</button>
+            <button className={css.myButton} onClick={this.clickHandle}>Bad</button>
         
             <h2>Statistics</h2>
 
