@@ -28,11 +28,11 @@ class Feedback extends Component {
   }
 
   countTotalFeedback = () => {
-    this.setState(state => ({ total: state.good + state.neutral + state.bad }))
+    this.setState(({good,neutral,bad}) => ({ total: good + neutral + bad }))
   }
 
   countPositiveFeedbackPercentage = () => {
-    this.setState(state => ({ positivePercentage: Math.round((state.good/state.total)*100) }))
+    this.setState(({good,total}) => ({ positivePercentage: Math.round((good/total)*100) }))
   }
   
 
