@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import css from './Statistics.module.css';
 
 
-class Statistics extends Component {
+export default class Statistics extends Component {
 
     render() {
    
@@ -23,12 +23,8 @@ class Statistics extends Component {
       positivePercentage
     } = this.props
 
-    return (
-        <>
-        
-            <h2>Statistics</h2>
-
-            <ul className={statList}>
+        return (
+        <ul className={statList}>
                 <li className={statListItem}>
                     <span className={label}>Bad:</span>
                     <span className={value}>{bad}</span>     
@@ -53,10 +49,8 @@ class Statistics extends Component {
                     <span className={label}>Positive feedback:</span>
                     <span className={value}>{positivePercentage}%</span>     
                 </li>
-            </ul>  
-        </>
+            </ul>
     );
   }
 }
 
-export default Statistics;

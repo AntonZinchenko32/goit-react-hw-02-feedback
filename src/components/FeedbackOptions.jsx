@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import css from './FeedbackOptions.module.css';
 
-class FeedbackOptions extends Component {
+export default class FeedbackOptions extends Component {
     render() {
 
         const {
+            myButtons,
             myButton
         } = css;
 
         const clickFunc = this.props.clickHandle;
 
         return (
-            <>
-                <h2>Please leave feedback</h2>
-                
+            <div className={myButtons}>
                 <button className={myButton} onClick={clickFunc}>Good</button>
                 <button className={myButton} onClick={clickFunc}>Neutral</button>
                 <button className={myButton} onClick={clickFunc}>Bad</button>
-            </>
+            </div>
         )
     }
 }
 
-export default FeedbackOptions;
+ 

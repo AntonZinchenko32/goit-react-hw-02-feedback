@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from "./Statistics";
 
@@ -14,6 +15,7 @@ export class App extends Component {
     total: 0,
     positivePercentage: 0
   }
+
 
 
   // Функція обробки кліку по кнопці, для залишення зворотонього зв'язку ********
@@ -59,12 +61,15 @@ export class App extends Component {
           color: '#010101'
         }}
       >
-        <FeedbackOptions
+        <Section title="Please leave feedback"/>
+          <FeedbackOptions
           // options={ }
           onLeaveFeedback={this.clickHandle}
         />
         
-        <Statistics
+        
+        <Section title="Statistics" />
+          <Statistics
           bad={bad}
           neutral={neutral}
           good={good}
