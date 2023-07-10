@@ -24,7 +24,7 @@ class Statistics extends Component {
     } = this.props
 
     return (
-        <div>
+        <>
         
             <h2>Statistics</h2>
 
@@ -54,7 +54,7 @@ class Statistics extends Component {
                     <span className={value}>{positivePercentage}%</span>     
                 </li>
             </ul>  
-        </div>
+        </>
     );
   }
 }
