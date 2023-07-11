@@ -48,7 +48,7 @@ export default class Statistics extends Component {
           
                 <li className={statListItem}>
                     <span className={label}>Positive feedback:</span>
-                    <span className={value}>{positivePercentage ? positivePercentage : 0}%</span>     
+                    <span className={value}>{positivePercentage}%</span>     
                 </li>
             </ul>
     );

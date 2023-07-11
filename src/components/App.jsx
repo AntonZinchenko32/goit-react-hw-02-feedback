@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import Section from './Section/Section';
-import  Notification  from "./Notification/Notification";
+import Notification from "./Notification/Notification";
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from "./Statistics/Statistics";
-import buttons from './data-files/buttons.json'
+
+import buttons from '../data-files/buttons.json'
 
 export class App extends Component {
 
