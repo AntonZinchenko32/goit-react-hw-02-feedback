@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-import Section from './Section';
-import FeedbackOptions from './FeedbackOptions';
-import Statistics from "./Statistics";
+import Section from './Section/Section';
+import  Notification  from "./Notification/Notification";
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Statistics from "./Statistics/Statistics";
 import buttons from './data-files/buttons.json'
 
 export class App extends Component {
@@ -18,28 +19,36 @@ export class App extends Component {
 
   // Функція обробки кліку по кнопці, для залишення зворотонього зв'язку ********
   clickHandle = (evt) => {
+
     
     // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
     const whatClicked = evt.target.textContent;
     
+    // Деструктуризуємо
     
-    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
-    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
-    else this.setState(state => ({ bad: state.bad + 1 }))
+    const { good, neutral, bad } = this.state;
+    
+    // Сама функція
+    if (whatClicked === "Good") this.setState(state => ({ good: good + 1 }))
+    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: neutral + 1 }))
+    else this.setState(state => ({ bad: bad + 1 }))
   }
 
 // *********************************************
 
-    // Функція підрахунку суми залишених відгуків *********
+    // Функція підрахунку суми залишених відгуків 
     countTotalFeedback = () => {
       
-      return this.state.good + this.state.bad + this.state.neutral;
+      // Деструктуризація
+      const { good, neutral, bad } = this.state;
+      
+      return good + bad + neutral;
     }
 
 // *********************************************
   
   
-    // Функці підрахунку відсотку позитивних відгуків серед усіх відгуків *********
+    // Функці підрахунку відсотку позитивних відгуків серед усіх відгуків 
     countPositiveFeedbackPercentage = () => {
       
       return Math.round((this.state.good / this.countTotalFeedback()) * 100);
@@ -51,6 +60,12 @@ export class App extends Component {
 
     // Деструктуризуємо
     const { bad, good, neutral } = this.state;
+    const {
+      clickHandle,
+      countTotalFeedback,
+      countPositiveFeedbackPercentage
+    } = this;
+
 
     return (
       <div
@@ -66,18 +81,23 @@ export class App extends Component {
         <Section title="Please leave feedback"/>
           <FeedbackOptions
           options={buttons}
-          onLeaveFeedback={this.clickHandle}
+          onLeaveFeedback={clickHandle}
         />
-        
-        
-        <Section title="Statistics" />
-          <Statistics
-          bad={bad}
-          neutral={neutral}
-          good={good}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        />
+        {(this.state.good || this.state.neutral || this.state.bad) ? 
+       <>
+         <Section title="Statistics" />
+            <Statistics
+            bad={bad}
+            neutral={neutral}
+            good={good}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
+            />
+       </>
+          :
+        <Notification message="There is no feedback" />
+        } 
+
       </div>
     );
   };
