@@ -79,7 +79,7 @@ export class App extends Component {
           color: '#010101'
         }}
       >
-        <Section title="Please leave feedback"/>
+        <Section title={"Please leave feedback"}/>
           <FeedbackOptions
           options={buttons}
           onLeaveFeedback={clickHandle}

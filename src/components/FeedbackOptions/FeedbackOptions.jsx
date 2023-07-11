@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import css from './FeedbackOptions.module.css';
+import PropTypes from "prop-types"
 
 export default class FeedbackOptions extends Component {
     render() {
@@ -22,4 +23,9 @@ export default class FeedbackOptions extends Component {
     }
 }
 
- 
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.exact({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+    }))
+}
