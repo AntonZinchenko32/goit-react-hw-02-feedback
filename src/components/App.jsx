@@ -14,7 +14,7 @@ export class App extends Component {
     bad: 0,
   
   }
-
+// ****************************************
 
   // Функція обробки кліку по кнопці, для залишення зворотонього зв'язку ********
   clickHandle = (evt) => {
@@ -28,20 +28,25 @@ export class App extends Component {
     else this.setState(state => ({ bad: state.bad + 1 }))
   }
 
+// *********************************************
+
     // Функція підрахунку суми залишених відгуків *********
     countTotalFeedback = () => {
       
       return this.state.good + this.state.bad + this.state.neutral;
     }
 
-
+// *********************************************
+  
+  
     // Функці підрахунку відсотку позитивних відгуків серед усіх відгуків *********
     countPositiveFeedbackPercentage = () => {
       
       return Math.round((this.state.good / this.countTotalFeedback()) * 100);
     }
  
-
+// ********************************************
+  
   render() {
 
     // Деструктуризуємо
