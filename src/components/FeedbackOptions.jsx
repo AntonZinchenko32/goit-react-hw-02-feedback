@@ -9,13 +9,14 @@ export default class FeedbackOptions extends Component {
             myButton
         } = css;
 
-        const clickFunc = this.props.clickHandle;
+        const { onLeaveFeedback } = this.props;
+
 
         return (
             <div className={myButtons}>
-                <button className={myButton} onClick={clickFunc}>Good</button>
-                <button className={myButton} onClick={clickFunc}>Neutral</button>
-                <button className={myButton} onClick={clickFunc}>Bad</button>
+                <button className={myButton} onClick={onLeaveFeedback}>Good</button>
+                <button className={myButton} onClick={onLeaveFeedback}>Neutral</button>
+                <button className={myButton} onClick={onLeaveFeedback}>Bad</button>
             </div>
         )
     }

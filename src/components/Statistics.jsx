@@ -4,6 +4,7 @@ import css from './Statistics.module.css';
 
 export default class Statistics extends Component {
 
+   
     render() {
    
     // Деструктуризуємо об'єкт стилів
@@ -47,7 +48,7 @@ export default class Statistics extends Component {
           
                 <li className={statListItem}>
                     <span className={label}>Positive feedback:</span>
-                    <span className={value}>{positivePercentage}%</span>     
+                    <span className={value}>{positivePercentage ? positivePercentage : 0}%</span>     
                 </li>
             </ul>
     );
