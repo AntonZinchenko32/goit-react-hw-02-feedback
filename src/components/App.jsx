@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from "./Statistics";
+import buttons from './data-files/buttons.json'
 
 export class App extends Component {
 
@@ -59,7 +60,7 @@ export class App extends Component {
       >
         <Section title="Please leave feedback"/>
           <FeedbackOptions
-          // options={ }
+          options={buttons}
           onLeaveFeedback={this.clickHandle}
         />
         

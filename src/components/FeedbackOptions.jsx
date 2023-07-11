@@ -9,14 +9,14 @@ export default class FeedbackOptions extends Component {
             myButton
         } = css;
 
-        const { onLeaveFeedback } = this.props;
-
+        const { onLeaveFeedback, options } = this.props;
+        
 
         return (
             <div className={myButtons}>
-                <button className={myButton} onClick={onLeaveFeedback}>Good</button>
-                <button className={myButton} onClick={onLeaveFeedback}>Neutral</button>
-                <button className={myButton} onClick={onLeaveFeedback}>Bad</button>
+                {options.map(({id, name}) => (
+                    <button key={id} className={myButton} onClick={onLeaveFeedback}>{name}</button>
+                ))}
             </div>
         )
     }
