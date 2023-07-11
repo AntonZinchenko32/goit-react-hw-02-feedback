@@ -83,7 +83,7 @@ export class App extends Component {
           options={buttons}
           onLeaveFeedback={clickHandle}
         />
-        {(this.state.good || this.state.neutral || this.state.bad) ? 
+        {(good || neutral || bad) ? 
        <>
          <Section title="Statistics" />
             <Statistics
