@@ -25,14 +25,11 @@ export class App extends Component {
     // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
     const whatClicked = evt.target.textContent;
     
-    // Деструктуризуємо
-    
-    const { good, neutral, bad } = this.state;
     
     // Сама функція
-    if (whatClicked === "Good") this.setState(state => ({ good: good + 1 }))
-    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: neutral + 1 }))
-    else this.setState(state => ({ bad: bad + 1 }))
+    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
+    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
+    else this.setState(state => ({ bad: state.bad + 1 }))
   }
 
 // *********************************************
