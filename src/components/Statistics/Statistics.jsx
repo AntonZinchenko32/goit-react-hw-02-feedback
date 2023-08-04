@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+
 import css from './Statistics.module.css';
 import PropTypes from "prop-types"
 
 
-export default class Statistics extends Component {
+export default function Statistics ({bad, neutral, good, total, positivePercentage}) {
 
-   
-    render() {
    
     // Деструктуризуємо об'єкт стилів
     const {
@@ -16,16 +14,7 @@ export default class Statistics extends Component {
       value
     } = css;
 
-    // Деструктуризуємо об'єкт стану екземпляру класу Feedback
-    const {
-      bad,
-      neutral,
-      good,
-      total,
-      positivePercentage
-    } = this.props
-
-        return (
+    return (
         <ul className={statList}>
                 <li className={statListItem}>
                     <span className={label}>Bad:</span>
@@ -53,8 +42,8 @@ export default class Statistics extends Component {
                 </li>
             </ul>
     );
-  }
 }
+
 
 Statistics.propTypes = {
     bad: PropTypes.number.isRequired,
@@ -62,5 +51,4 @@ Statistics.propTypes = {
     good: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
     positivePercentage: PropTypes.number.isRequired
-    
 }
