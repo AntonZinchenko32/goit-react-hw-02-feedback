@@ -8,7 +8,6 @@ export default function Statistics({
   total,
   positivePercentage,
 }) {
-  // Деструктуризуємо об'єкт стилів
   const { statList, statListItem, label, value } = css;
 
   return (
