@@ -23,13 +23,12 @@ export class App extends Component {
 
     
     // Визначаємо яка кнопка була натиснута та зберігаємо цю інформацію у змінну
-    const whatClicked = evt.target.textContent;
+    const whatClickedLowerCase = evt.target.textContent.toLowerCase();
     
     
     // Сама функція
-    if (whatClicked === "Good") this.setState(state => ({ good: state.good + 1 }))
-    else if (whatClicked === "Neutral") this.setState(state => ({ neutral: state.neutral + 1 }))
-    else this.setState(state => ({ bad: state.bad + 1 }))
+    this.setState(state => ({ [whatClickedLowerCase]: state[whatClickedLowerCase] + 1 }))
+
   }
 
 // *********************************************
