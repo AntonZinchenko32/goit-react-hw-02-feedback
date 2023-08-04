@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import css from './FeedbackOptions.module.css';
 import PropTypes from "prop-types"
+import { nanoid } from "nanoid";
 
 export default class FeedbackOptions extends Component {
     render() {
@@ -12,11 +13,15 @@ export default class FeedbackOptions extends Component {
 
         const { onLeaveFeedback, options } = this.props;
         
-
+        // Пишемо функцію, що збільшує першу літеру у рядку, для назв кнопок
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+        
         return (
             <div className={myButtons}>
-                {options.map(({id, name}) => (
-                    <button key={id} className={myButton} onClick={onLeaveFeedback}>{name}</button>
+                {options.map(option => (
+                    <button key={nanoid()} className={myButton} onClick={onLeaveFeedback}>{capitalizeFirstLetter(option)}</button>
                 ))}
             </div>
         )
@@ -24,8 +29,5 @@ export default class FeedbackOptions extends Component {
 }
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.exact({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired
-    }))
+    options: PropTypes.arrayOf(PropTypes.string)
 }

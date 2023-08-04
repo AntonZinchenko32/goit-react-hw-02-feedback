@@ -5,7 +5,7 @@ import Notification from "./Notification/Notification";
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from "./Statistics/Statistics";
 
-import buttons from '../data-files/buttons.json'
+
 
 export class App extends Component {
 
@@ -77,7 +77,7 @@ export class App extends Component {
       >
         <Section title={"Please leave feedback"}/>
           <FeedbackOptions
-          options={buttons}
+          options={Object.keys(this.state)}
           onLeaveFeedback={clickHandle}
         />
         {(good || neutral || bad) ? 
