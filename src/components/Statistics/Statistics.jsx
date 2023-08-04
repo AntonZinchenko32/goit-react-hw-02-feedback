@@ -1,54 +1,50 @@
-
 import css from './Statistics.module.css';
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types';
 
+export default function Statistics({
+  bad,
+  neutral,
+  good,
+  total,
+  positivePercentage,
+}) {
+  // Деструктуризуємо об'єкт стилів
+  const { statList, statListItem, label, value } = css;
 
-export default function Statistics ({bad, neutral, good, total, positivePercentage}) {
+  return (
+    <ul className={statList}>
+      <li className={statListItem}>
+        <span className={label}>Bad:</span>
+        <span className={value}>{bad}</span>
+      </li>
 
-   
-    // Деструктуризуємо об'єкт стилів
-    const {
-      statList,
-      statListItem,
-      label,
-      value
-    } = css;
+      <li className={statListItem}>
+        <span className={label}>Neutral:</span>
+        <span className={value}>{neutral}</span>
+      </li>
 
-    return (
-        <ul className={statList}>
-                <li className={statListItem}>
-                    <span className={label}>Bad:</span>
-                    <span className={value}>{bad}</span>     
-                </li>
-                
-                <li className={statListItem}>
-                    <span className={label}>Neutral:</span>
-                    <span className={value}>{neutral}</span>     
-                </li>
-                
-                <li className={statListItem}>
-                    <span className={label}>Good:</span>
-                    <span className={value}>{good}</span>     
-                </li>
-          
-                <li className={statListItem}>
-                    <span className={label}>Total:</span>
-                    <span className={value}>{total}</span>     
-                </li>
-          
-                <li className={statListItem}>
-                    <span className={label}>Positive feedback:</span>
-                    <span className={value}>{positivePercentage}%</span>     
-                </li>
-            </ul>
-    );
+      <li className={statListItem}>
+        <span className={label}>Good:</span>
+        <span className={value}>{good}</span>
+      </li>
+
+      <li className={statListItem}>
+        <span className={label}>Total:</span>
+        <span className={value}>{total}</span>
+      </li>
+
+      <li className={statListItem}>
+        <span className={label}>Positive feedback:</span>
+        <span className={value}>{positivePercentage}%</span>
+      </li>
+    </ul>
+  );
 }
-
 
 Statistics.propTypes = {
-    bad: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    good: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    positivePercentage: PropTypes.number.isRequired
-}
+  bad: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  good: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
