@@ -34,7 +34,6 @@ export class App extends Component {
   };
 
   render() {
-    // Деструктуризуємо
     const { bad, good, neutral } = this.state;
     const { clickHandle, countTotalFeedback, countPositiveFeedbackPercentage } =
       this;
