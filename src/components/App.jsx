@@ -80,7 +80,7 @@ export class App extends Component {
           options={Object.keys(this.state)}
           onLeaveFeedback={clickHandle}
         />
-        {(good || neutral || bad) ? 
+        {countTotalFeedback() ? 
        <>
          <Section title="Statistics" />
             <Statistics
