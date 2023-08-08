@@ -1,8 +1,13 @@
 import css from './Section.module.css';
 import PropTypes from 'prop-types';
 
-export default function Section({ title }) {
-  return <h2 className={css.section}>{title}</h2>;
+export default function Section({ title, children }) {
+  return (
+    <section className={css.section}>
+      <h2>{title}</h2>
+      {children}
+    </section>
+  );
 }
 
 Section.propTypes = {

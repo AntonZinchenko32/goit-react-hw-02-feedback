@@ -49,14 +49,14 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <Section title={'Please leave feedback'} />
-        <FeedbackOptions
-          options={Object.keys(this.state)}
-          onLeaveFeedback={clickHandle}
-        />
+        <Section title={'Please leave feedback'}>
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={clickHandle}
+          />
+        </Section>
         {countTotalFeedback() ? (
-          <>
-            <Section title="Statistics" />
+          <Section title="Statistics">
             <Statistics
               bad={bad}
               neutral={neutral}
@@ -64,7 +64,7 @@ export class App extends Component {
               total={countTotalFeedback()}
               positivePercentage={countPositiveFeedbackPercentage()}
             />
-          </>
+          </Section>
         ) : (
           <Notification message="There is no feedback" />
         )}
